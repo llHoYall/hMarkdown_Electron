@@ -1,10 +1,26 @@
 import { app } from "electron";
 import createMainWindow from "./create-main-window";
+import setAppMenu from "./menu";
 
-let main_window = null;
+function openFile() {
+  console.log("openFile");
+}
+
+function saveFile() {
+  console.log("saveFile");
+}
+
+function saveAsNewFile() {
+  console.log("saveAsNewFile");
+}
+
+function exportPDF() {
+  console.log("exportPDF");
+}
 
 app.on("ready", () => {
-  main_window = createMainWindow();
+  createMainWindow();
+  setAppMenu({ openFile, saveFile, saveAsNewFile, exportPDF });
 });
 
 app.on("window-all-closed", () => {
@@ -15,6 +31,6 @@ app.on("window-all-closed", () => {
 
 app.on("active", (_e, has_visible_windows) => {
   if (!has_visible_windows) {
-    main_window = createMainWindow();
+    createMainWindow();
   }
 });

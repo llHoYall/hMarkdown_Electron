@@ -1,4 +1,4 @@
-// var path = require("path");
+const path = require("path");
 
 module.exports = {
   target: "electron-main",
@@ -28,9 +28,8 @@ module.exports = {
     "renderer/app": "./src/renderer/app.jsx"
   },
   output: {
-    // path: path.resolve(__dirname, "dist"),
-    // filename: "[name].js"
-    filename: "dist/[name].js"
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js"
   },
   devtool: "source-map"
 };
