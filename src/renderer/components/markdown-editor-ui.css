@@ -1,0 +1,14 @@
+.markdown_editor {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.editor_area {
+  margin-right: 8px;
+}
+
+.preview_area {
+  padding-left: 8px;
+}
