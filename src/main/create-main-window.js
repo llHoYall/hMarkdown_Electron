@@ -1,4 +1,4 @@
-import { BrowserWindow } from "electron";
+import { BrowserWindow, ipcMain } from "electron";
 
 class MainWindow {
   constructor() {
@@ -7,6 +7,17 @@ class MainWindow {
     this.window.on("closed", () => {
       this.window = null;
     });
+  }
+
+  requestText() {
+    return new Promise(resolve => {
+      this.window.webContents.send("REQUEST_TEXT");
+      ipcMain.once("REPLY_TEXT", (__filename, text) => resolve(text));
+    });
+  }
+
+  sendText(text) {
+    this.window.webContents.send("SEND_TEXT", text);
   }
 }
 
