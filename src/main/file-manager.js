@@ -24,6 +24,13 @@ class FileManager {
       resolve(text);
     });
   }
+
+  writePdf(filePath, pdf) {
+    return new Promise(resolve => {
+      FS.writeFileSync(filePath, pdf);
+      resolve();
+    });
+  }
 }
 
 function createFileManager() {
