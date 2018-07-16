@@ -1,11 +1,19 @@
-import { BrowserWindow, ipcMain } from "electron";
+import { BrowserWindow, ipcMain, shell } from "electron";
 
 class MainWindow {
   constructor() {
-    this.window = new BrowserWindow({ width: 800, height: 600 });
+    this.window = new BrowserWindow({
+      width: 800,
+      height: 600,
+      title: "HoYa's Markdown Editor"
+    });
     this.window.loadURL(`file://${__dirname}/../../index.html`);
     this.window.on("closed", () => {
       this.window = null;
+    });
+    this.window.webContents.on("will-navigate", (e, url) => {
+      e.preventDefault();
+      shell.openExternal(url);
     });
   }
 

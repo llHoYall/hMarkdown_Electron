@@ -46,7 +46,6 @@ function exportPDF() {
     .then(([filePath, text]) => {
       const pdf_window = createPDFWindow(text);
       pdf_window.on("RENDERED_CONTENTS", () => {
-        console.log("exportPDF");
         pdf_window
           .generatePDF()
           .then(pdf => file_manager.writePdf(filePath, pdf))
