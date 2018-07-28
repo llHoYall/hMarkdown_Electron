@@ -35,7 +35,7 @@ function setAppMenu(options) {
           label: "Toggle DevTools",
           accelerator:
             process.platform === "darwin" ? "Alt+Command+I" : "Ctrl+Shift+I",
-          click: BrowserWindow.getFocusedWindow().toggleDevTools()
+          click: () => BrowserWindow.getFocusedWindow().toggleDevTools()
         }
       ]
     }

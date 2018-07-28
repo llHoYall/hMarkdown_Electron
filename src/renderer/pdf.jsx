@@ -1,5 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-import PDF_UI from "./components/pdf-ui";
+import PDFUI from "./components/PDFUI";
 
-render(<PDF_UI />, document.getElementById("content"));
+render(<PDFUI />, document.getElementById("content"));

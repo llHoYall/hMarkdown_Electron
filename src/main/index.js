@@ -1,9 +1,9 @@
 import { app } from "electron";
-import createMainWindow from "./create-main-window";
+import createMainWindow from "./createMainWindow";
 import setAppMenu from "./menu";
 import showSaveAsNewFileDialog from "./show-save-as-new-file-dialog";
 import showOpenFileDialog from "./show-open-file-dialog";
-import FileManager from "./file-manager";
+import createFileManager from "./file-manager";
 import createPDFWindow from "./pdf-window";
 import showExportPDFDialog from "./show-export-pdf-dialog";
 
@@ -63,7 +63,7 @@ function exportPDF() {
 
 app.on("ready", () => {
   main_window = createMainWindow();
-  file_manager = FileManager();
+  file_manager = createFileManager();
   setAppMenu({ openFile, saveFile, saveAsNewFile, exportPDF });
 });
 

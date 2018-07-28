@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./editor.css";
+import style from "./Editor.css";
 
 export default function Editor(props) {
   return (

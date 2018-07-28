@@ -1,10 +1,10 @@
+import React from "react";
+import Editor from "./Editor";
+import Previewer from "./Previewer";
+import style from "./MarkDownEditorUI.css";
 import { ipcRenderer } from "electron";
-import React, { Component } from "react";
-import Editor from "./editor";
-import Preview from "./preview";
-import style from "./markdown-editor-ui.css";
 
-export default class MarkdownEditorUI extends Component {
+export default class MarkDownEditorUI extends React.Component {
   constructor(props) {
     super(props);
     this.state = { text: "" };
@@ -24,20 +24,20 @@ export default class MarkdownEditorUI extends Component {
     ipcRenderer.removeAllListeners();
   }
 
+  onChangeText(e) {
+    this.setState({ text: e.target.value });
+  }
+
   render() {
     return (
-      <div className={style.markdown_editor}>
+      <div className={style.markdownEditor}>
         <Editor
-          className={style.editor_area}
+          className={style.editorArea}
           value={this.state.text}
           onChange={this.onChangeText}
         />
-        <Preview className={style.preview} value={this.state.text} />
+        <Previewer className={style.previewerArea} value={this.state.text} />
       </div>
     );
-  }
-
-  onChangeText(e) {
-    this.setState({ text: e.target.value });
   }
 }

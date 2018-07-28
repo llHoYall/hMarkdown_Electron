@@ -1,5 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-import MarkDownEditorUI from "./components/markdown-editor-ui";
+import MarkdownEditorUI from "./components/MarkdownEditorUI";
 
-render(<MarkDownEditorUI />, document.getElementById("app"));
+render(<MarkdownEditorUI />, document.getElementById("app"));
