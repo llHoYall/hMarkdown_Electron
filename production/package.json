@@ -1,0 +1,8 @@
+{
+  "name": "hmarkdown_electron",
+  "productName": "hMarkdownEditor",
+  "version": "1.0.0",
+  "main": "js/main/index.js",
+  "description": "HoYa's markdown application with electron",
+  "author": "llHoYall <hoya128@gmail.com>"
+}

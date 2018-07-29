@@ -6,7 +6,12 @@
   "scripts": {
     "start": "./node_modules/.bin/electron .",
     "build": "./node_modules/.bin/webpack --watch",
-    "test": "set NODE_ENV=test & mocha test/**/*_test.js"
+    "test": "set NODE_ENV=test & mocha test/**/*_test.js",
+    "copy:resources": "cpx \"prod_resources/**/*\" dist",
+    "copy:photon": "cpx \"node_modules/photon/dist/css/**/*\" dist/css && cpx \"node_modules/photon/dist/fonts/**/*\" dist/fonts",
+    "prebundle": "npm run copy:resources && npm run copy:photon",
+    "bundle": "webpack",
+    "package": "npm run bundle && electron-packager dist \"HoYa's Markdown Editor\" --all --out=release"
   },
   "repository": {
     "type": "git",
@@ -30,8 +35,10 @@
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "cpx": "^1.5.0",
     "css-loader": "^1.0.0",
     "electron": "^2.0.4",
+    "electron-packager": "^12.1.0",
     "jsdom": "^11.11.0",
     "mocha": "^5.2.0",
     "spectron": "^3.8.0",
