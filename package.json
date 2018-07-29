@@ -1,7 +1,8 @@
 {
   "name": "hmarkdown_electron",
-  "version": "1.0.0",
   "description": "HoYa's markdown application with electron",
+  "author": "llHoYall <hoya128@gmail.com>",
+  "version": "1.0.0",
   "main": "dist/main/index.js",
   "scripts": {
     "start": "./node_modules/.bin/electron .",
@@ -17,7 +18,16 @@
     "type": "git",
     "url": "git+https://github.com/llHoYall/hMarkdown_Electron.git"
   },
-  "author": "llHoYall <hoya128@gmail.com>",
+  "build" : {
+    "appId": "io.github.llHoYall.hMarkdown_Electron",
+    "win": {
+      "target": ["squirrel"]
+    },
+    "directories": {
+      "app": "dist",
+      "output": "release"
+    }
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/llHoYall/hMarkdown_Electron/issues"
@@ -38,6 +48,8 @@
     "cpx": "^1.5.0",
     "css-loader": "^1.0.0",
     "electron": "^2.0.4",
+    "electron-builder": "^20.26.0",
+    "electron-builder-squirrel-windows": "^20.26.0",
     "electron-packager": "^12.1.0",
     "jsdom": "^11.11.0",
     "mocha": "^5.2.0",

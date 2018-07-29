@@ -4,5 +4,8 @@ node_modules/
 # Babel
 dist/
 
+# Mocha
+reports/
+
 # Release
 release/
